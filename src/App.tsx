@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Styled from 'styled-components';
 
 import { Button, Input, ToDoItem } from 'Components';
@@ -19,17 +19,19 @@ const Contents = Styled.div`
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 `;
 const InputContainer = Styled.div`
-  display: flex;
+  display: flex; 
 `;
 
 function App() {
+  const [toDo, setToDo] = useState('');
+
   return (
     <Container>
       <Contents>
         <ToDoItem label={"추가된 할 일"} onDelete={() => alert('삭제')} />
         <InputContainer>
-          <Input placeholder="할 일을 입력해 주세요" onChange={(text) => console.log(text)} />
-          <Button label="추가" onClick={() => alert('추가')} />
+          <Input placeholder="할 일을 입력해 주세요" onChange={(text) => setToDo(text)} />
+          <Button label="추가" onClick={() => alert(toDo)} />
         </InputContainer>
       </Contents>
     </Container>

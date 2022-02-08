@@ -38,7 +38,7 @@ export const Button = ({ label,
                          onClick
  }: Props) => {
   return (
-      <Container backgroundColor={backgroundColor} hoverColor={hoverColor} onClick={() => alert('추가')}>
+      <Container backgroundColor={backgroundColor} hoverColor={hoverColor} onClick={onClick}>
       <Label>{label}</Label>
     </Container>
   );

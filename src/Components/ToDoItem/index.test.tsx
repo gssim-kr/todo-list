@@ -1,0 +1,19 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import 'jest-styled-components';
+
+import { ToDoItem } from './index';
+
+describe('<ToDoItem />', () => {
+  it('renders component correctly', () => {
+    const { container } = render(<ToDoItem label="default value" />);
+
+    const todoItem = screen.getByText('default value');
+    expect(todoItem).toBeInTheDocument();
+
+    const deleteButton = screen.getByText('삭제');
+    expect(deleteButton).toBeInTheDocument();
+
+    expect(container).toMatchSnapshot();
+  });
+});

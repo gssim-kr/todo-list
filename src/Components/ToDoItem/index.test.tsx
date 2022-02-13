@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import 'jest-styled-components';
 
 import { ToDoItem } from './index';
@@ -15,5 +15,16 @@ describe('<ToDoItem />', () => {
     expect(deleteButton).toBeInTheDocument();
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('clicks the delete button', () => {
+    const handleClick = jest.fn();
+    render(<ToDoItem label="default value" onDelete={handleClick} />);
+
+    const deleteButton = screen.getByText('삭제');
+    expect(handleClick).toHaveBeenCalledTimes(0);
+
+    fireEvent.click(deleteButton);
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 });

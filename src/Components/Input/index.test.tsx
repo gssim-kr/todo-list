@@ -14,4 +14,11 @@ describe('<Input />', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it('renders placeholder correctly', () => {
+    render(<Input placeholder="default placeholder" />);
+
+    const input = screen.getByPlaceholderText('default placeholder');
+    expect(input).toBeInTheDocument();
+  });
 });

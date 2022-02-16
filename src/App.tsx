@@ -95,6 +95,8 @@ class App extends Component<Props, State> {
     );
   }
 
+  /*
+
   // 부모로부터 받은 Props와 State를 동기화할 때 사용
   static getDerivedStateFromProps(nextProps: Props, prevState: State) {
     console.log('getDerivedStateFromProps');
@@ -146,5 +148,6 @@ class App extends Component<Props, State> {
       error: true,
     });
   }
+   */
 }
 export default App;
